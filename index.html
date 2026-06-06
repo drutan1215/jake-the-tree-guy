@@ -167,25 +167,18 @@
     justify-content: center;
   }
 
-  .hero-video-bg {
+  .hero-bg-img {
     position: absolute;
     inset: 0;
     z-index: 0;
-    overflow: hidden;
-    background: var(--bg);
+    background-image: url('jakeinatree.jpg');
+    background-size: cover;
+    background-position: center 15%;
+    animation: kenBurns 22s ease-in-out infinite alternate;
   }
-  .hero-video-bg iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.6);
-    width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.78vh;
-    pointer-events: none;
-    border: none;
-    opacity: 0.55;
+  @keyframes kenBurns {
+    from { transform: scale(1);    background-position: center 15%; }
+    to   { transform: scale(1.09); background-position: center 25%; }
   }
 
   .hero-overlay {
@@ -1022,6 +1015,95 @@
     border-radius: 100px;
   }
 
+  /* ── VIDEO SECTION ── */
+  #video-section { background: var(--bg2); }
+  .video-section-inner { text-align: center; }
+  .video-section-inner .gold-rule {
+    margin: 0 auto 48px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .video-frame-outer {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .video-frame-outer::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border: 1px solid rgba(201,162,39,0.2);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .video-frame-outer::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: 40px; right: 40px; bottom: -20px;
+    background: radial-gradient(ellipse at center, rgba(201,162,39,0.08) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .video-inner {
+    position: relative;
+    z-index: 1;
+    border: 2px solid rgba(201,162,39,0.35);
+    border-radius: 2px;
+    overflow: hidden;
+    background: #000;
+    /* 560×314 ≈ 16:9 — match FB embed dimensions */
+    aspect-ratio: 560 / 314;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-inner iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--bg3);
+    pointer-events: none;
+    transition: opacity 0.4s;
+  }
+  .video-placeholder .play-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,162,39,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: rgba(201,162,39,0.5);
+  }
+  .video-placeholder span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+  }
+  .video-inner.loaded .video-placeholder { opacity: 0; }
+  .video-caption {
+    margin-top: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+  }
+
   /* ── PHONE CTA FLOATING ── */
   .phone-float {
     position: fixed;
@@ -1150,15 +1232,7 @@
 
 <!-- ── HERO ── -->
 <section id="home">
-  <div class="hero-video-bg">
-    <iframe
-      src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1636785514060075%2F&show_text=false&width=560&t=0&autoplay=1&mute=1"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-      allowfullscreen
-      scrolling="no"
-      frameborder="0">
-    </iframe>
-  </div>
+  <div class="hero-bg-img"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <img src="jakethetreeguyllclogo.jpg" alt="Jake The Tree Guy LLC" class="hero-logo">
@@ -1184,7 +1258,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image-wrap fade-in-left">
-        <img src="jakeinatree.jpg" alt="Jake high up in a tree performing tree removal">
+        <img src="jakeinatree2.jpg" alt="Jake high up in a tree performing tree removal">
       </div>
       <div class="fade-in-right">
         <span class="section-label">About Jake</span>
@@ -1315,6 +1389,34 @@
   <img id="lightbox-img" src="" alt="">
   <div class="lightbox-next" onclick="shiftLightbox(1)">›</div>
 </div>
+
+<!-- ── VIDEO SECTION ── -->
+<section id="video-section">
+  <div class="container">
+    <div class="video-section-inner fade-in">
+      <span class="section-label">Watch Us Work</span>
+      <h2 class="section-title">See The <span>Craft</span></h2>
+      <div class="gold-rule"></div>
+      <div class="video-frame-outer">
+        <div class="video-inner" id="video-container">
+          <div class="video-placeholder" id="video-placeholder">
+            <div class="play-icon">▶</div>
+            <span>Scroll to play</span>
+          </div>
+          <iframe
+            id="fb-video"
+            src=""
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen
+            scrolling="no"
+            frameborder="0">
+          </iframe>
+        </div>
+        <p class="video-caption">Jake The Tree Guy LLC — Northeast Ohio's expert climber</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── REVIEWS ── -->
 <section id="reviews">
@@ -1624,6 +1726,30 @@
     if (e.key === 'ArrowRight') shiftLightbox(1);
   });
   document.getElementById('lightbox-img').style.transition = 'opacity 0.15s';
+
+  // ── VIDEO AUTOPLAY ON SCROLL
+  // Cross-origin FB iframe can't be controlled via JS API,
+  // so we load the src (with autoplay=1) on enter and clear it on exit.
+  const FB_SRC = 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1636785514060075%2F&show_text=false&width=560&t=0&autoplay=1&mute=1';
+  const fbVideo = document.getElementById('fb-video');
+  const fbContainer = document.getElementById('video-container');
+  const fbPlaceholder = document.getElementById('video-placeholder');
+
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!fbVideo.src) {
+          fbVideo.src = FB_SRC;
+          fbContainer.classList.add('loaded');
+        }
+      } else {
+        fbVideo.src = '';
+        fbContainer.classList.remove('loaded');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  videoObserver.observe(fbContainer);
 
   // ── CONTACT FORM
   function handleSubmit(e) {
