@@ -206,6 +206,15 @@ nav.scrolled {
   text-align: center;
 }
 
+.hero-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 24px rgba(139,68,200,0.35)) drop-shadow(0 2px 12px rgba(0,0,0,0.6));
+  animation: heroReveal 1s ease both;
+  margin-bottom: 8px;
+}
+
 .hero-eyebrow {
   font-size: 11px;
   font-weight: 700;
@@ -228,9 +237,9 @@ nav.scrolled {
 
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(80px, 13vw, 196px);
-  line-height: 0.88;
-  letter-spacing: 1px;
+  font-size: clamp(64px, 9.5vw, 140px);
+  line-height: 0.92;
+  letter-spacing: 2px;
   color: var(--white);
   animation: heroReveal 1s ease both;
 }
@@ -1170,6 +1179,7 @@ footer {
   .hero-content { padding: 0 24px 48px; text-align: left; }
   .hero-eyebrow { justify-content: flex-start; }
   .hero-sub-row { justify-content: flex-start; }
+  .hero-logo { width: 110px; height: 110px; }
   .hero-scroll-hint { display: none; }
   .stats-strip { flex-wrap: wrap; }
   .stat-block { flex-basis: 50%; border-right: none; border-bottom: 1px solid rgba(242,237,228,0.06); }
@@ -1192,7 +1202,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 72px; }
   .stat-block { flex-basis: 100%; }
   .rcard { width: 300px; }
   .gallery-grid { grid-template-columns: 1fr; }
@@ -1241,8 +1250,9 @@ footer {
   <div class="hero-gradient"></div>
   <div class="hero-slash"></div>
   <div class="hero-content">
+    <img src="jakethetreeguylogopng.png" alt="Jake The Tree Guy LLC" class="hero-logo">
     <div class="hero-eyebrow">Stow, Ohio · Est. 2006</div>
-    <h1 class="hero-title">Jake<br>The<br><em>Tree</em><br>Guy</h1>
+    <h1 class="hero-title">Jake The<br><em>Tree</em> Guy</h1>
     <div class="hero-sub-row">
       <p class="hero-tagline">That's my name for a reason — 18 years climbing every tree personally.</p>
       <div class="hero-cta-group">
