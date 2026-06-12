@@ -45,7 +45,7 @@
       "@type": "LocalBusiness",
       "@id": "https://drutan1215.github.io/jake-the-tree-guy/#business",
       "name": "Jake The Tree Guy LLC",
-      "description": "Specializing in hazardous and hard-to-reach tree pruning and removals. Over 18 years of hands-on experience. Fully insured. Work performed in accordance with ANSI A300 Standards.",
+      "description": "Specializing in hazardous and hard-to-reach tree pruning and removals. Over 18 years of hands-on experience. Fully insured. Follows ISA pruning guidelines. Work performed in accordance with ANSI A300 Standards.",
       "url": "https://drutan1215.github.io/jake-the-tree-guy/",
       "telephone": "+13305959003",
       "priceRange": "$$",
@@ -731,7 +731,7 @@ nav.scrolled {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 280px 280px 280px 280px 220px;
+  grid-template-rows: 280px 280px 280px 280px 220px 280px 280px;
   gap: 3px;
   max-width: 1440px;
   margin: 0 auto;
@@ -752,6 +752,14 @@ nav.scrolled {
 /* Row 5: cinematic wide pair */
 .gitem:nth-child(11) { grid-column: 1 / 7;  grid-row: 5; }
 .gitem:nth-child(12) { grid-column: 7 / 13; grid-row: 5; }
+/* Row 6: three across */
+.gitem:nth-child(13) { grid-column: 1 / 5;  grid-row: 6; }
+.gitem:nth-child(14) { grid-column: 5 / 9;  grid-row: 6; }
+.gitem:nth-child(15) { grid-column: 9 / 13; grid-row: 6; }
+/* Row 7: mirrored widths */
+.gitem:nth-child(16) { grid-column: 1 / 4;  grid-row: 7; }
+.gitem:nth-child(17) { grid-column: 4 / 9;  grid-row: 7; }
+.gitem:nth-child(18) { grid-column: 9 / 13; grid-row: 7; }
 .gitem img {
   width: 100%;
   height: 100%;
@@ -1431,8 +1439,9 @@ footer {
     <p class="about-pull">"We're often called for the jobs other companies turn down — and we take pride in completing them safely and professionally."</p>
     <p class="about-body">We specialize in hazardous and hard-to-reach tree pruning and removals, with over 18 years of hands-on experience in the tree care industry. Every tree is climbed personally, allowing us to handle difficult jobs with precision, control, and care.</p>
     <p class="about-body">Unlike companies that rely on large bucket trucks, we avoid bringing heavy equipment into your yard whenever possible. From start to finish, your property is treated with respect. Final cleanup is a priority — we guarantee your yard will be left just as clean, if not cleaner, than when we arrived.</p>
-    <p class="about-body">No job is too big or too small. We are fully insured, offer free estimates, and work is performed in accordance with ANSI A300 Standards. Our goal is simple: safe, reliable tree care and a customer who is smiling when we leave.</p>
+    <p class="about-body">No job is too big or too small. We are fully insured, offer free estimates, and follow ISA pruning guidelines with work performed in accordance with ANSI A300 Standards. Our goal is simple: safe, reliable tree care and a customer who is smiling when we leave.</p>
     <div class="about-creds">
+      <span class="cred-tag">Follows ISA Guidelines</span>
       <span class="cred-tag">ANSI A300</span>
       <span class="cred-tag">Fully Insured</span>
       <span class="cred-tag">Free Estimates</span>
@@ -1441,7 +1450,7 @@ footer {
       <div class="abadge"><span class="abadge-icon">🏆</span><span class="abadge-text">18+ Yrs Experience</span></div>
       <div class="abadge"><span class="abadge-icon">🛡️</span><span class="abadge-text">Fully Insured</span></div>
       <div class="abadge"><span class="abadge-icon">💰</span><span class="abadge-text">Free Estimates</span></div>
-      <div class="abadge"><span class="abadge-icon">🌿</span><span class="abadge-text">ANSI A300</span></div>
+      <div class="abadge"><span class="abadge-icon">🌿</span><span class="abadge-text">ISA Guidelines</span></div>
     </div>
     <a href="#contact" class="btn-gold" style="align-self:flex-start; margin-top:8px;">Request Estimate</a>
   </div>
@@ -1472,7 +1481,7 @@ footer {
         <span class="svc-icon">✂️</span>
         <span class="svc-toggle">+</span>
       </div>
-      <div class="svc-body"><div class="svc-body-inner">Expert pruning performed in accordance with ANSI A300 standards to promote tree health, improve structure, and enhance the natural beauty of your trees.</div></div>
+      <div class="svc-body"><div class="svc-body-inner">Expert pruning following ISA guidelines and performed in accordance with ANSI A300 standards to promote tree health, improve structure, and enhance the natural beauty of your trees.</div></div>
     </div>
     <div class="svc-row reveal" onclick="toggleSvc(this)" style="transition-delay:0.1s">
       <div class="svc-head">
@@ -1539,51 +1548,75 @@ footer {
   </div>
   <div class="gallery-grid">
     <div class="gitem" onclick="openLb(0)">
-      <img src="jakeinatree.jpg" alt="Jake high in a tree" loading="lazy">
+      <img src="2698.jpg" alt="Jake standing on top of a tree with American flag in background" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(1)">
-      <img src="jakeinatree4.jpg" alt="Jake in gear up in a tree" loading="lazy">
+      <img src="jakeinatree.jpg" alt="Jake high in a tree during removal" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(2)">
-      <img src="jake3.jpg" alt="Jake rigging with chainsaw" loading="lazy">
+      <img src="jakeinatree4.jpg" alt="Jake in full climbing gear up in a tree" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(3)">
-      <img src="jakeinatree2.jpg" alt="Jake climbing" loading="lazy">
+      <img src="2701.jpg" alt="Jake suspended from ropes in tree canopy" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(4)">
-      <img src="jakeinatree3.jpg" alt="Overhead view from the treetop" loading="lazy">
+      <img src="jakeinatree3.jpg" alt="Dramatic overhead view from the treetop" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(5)">
-      <img src="jake.jpg" alt="Jake in pine forest" loading="lazy">
+      <img src="jake.jpg" alt="Jake high up in a pine forest" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(6)">
-      <img src="jake2.jpg" alt="Jake up in tree with equipment below" loading="lazy">
+      <img src="jake2.jpg" alt="Jake in tree with equipment visible below" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(7)">
-      <img src="chippertruck.jpg" alt="Aerial view of crew working" loading="lazy">
+      <img src="jakeinatree2.jpg" alt="Jake climbing a large tree" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(8)">
-      <img src="loadinglogs.jpg" alt="Loading logs with equipment" loading="lazy">
+      <img src="chippertruck.jpg" alt="Aerial view of crew working between houses" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(9)">
-      <img src="loadinglogs2.jpg" alt="Log cleanup" loading="lazy">
+      <img src="2702.jpg" alt="Jake in branded shirt with climbing gear and chainsaw" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(10)">
-      <img src="buckettruck.jpg" alt="Tree removal equipment" loading="lazy">
+      <img src="2704.jpg" alt="Massive tree section lifted by crane at dusk" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(11)">
-      <img src="buckettruck2.jpg" alt="Tree service in action" loading="lazy">
+      <img src="loadinglogs.jpg" alt="Loading logs with tracked equipment" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(12)">
+      <img src="jake3.jpg" alt="Jake rigging with chainsaw in tree" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(13)">
+      <img src="2697.jpg" alt="Massive tree trunk with fresh stump" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(14)">
+      <img src="2705.jpg" alt="Large tree stump sections after removal" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(15)">
+      <img src="loadinglogs2.jpg" alt="Log cleanup and hauling" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(16)">
+      <img src="buckettruck.jpg" alt="Tree removal equipment on the job" loading="lazy">
+      <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
+    </div>
+    <div class="gitem" onclick="openLb(17)">
+      <img src="buckettruck2.jpg" alt="Professional tree service in action" loading="lazy">
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
   </div>
@@ -1823,6 +1856,7 @@ footer {
   <div class="footer-bottom">
     <p>© 2026 Jake The Tree Guy LLC · All Rights Reserved · Stow, OH</p>
     <div class="footer-creds">
+      <span>Follows ISA Guidelines</span>
       <span>ANSI A300</span>
       <span>Fully Insured</span>
     </div>
