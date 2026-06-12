@@ -94,13 +94,6 @@
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drone Rescue"}}
         ]
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "worstRating": "1",
-        "reviewCount": "60"
-      },
       "image": [
         "https://jakethetreeguyllc.com/Jakethetreguylogonewnobg.png",
         "https://jakethetreeguyllc.com/jakeinatree.jpg",
@@ -124,6 +117,47 @@
       "name": "Jake The Tree Guy LLC",
       "description": "Expert tree removal and pruning in Northeast Ohio",
       "publisher": {"@id": "https://jakethetreeguyllc.com/#business"}
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://jakethetreeguyllc.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you offer emergency tree removal in Stow, OH?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. Jake The Tree Guy LLC provides emergency tree removal throughout Stow and the surrounding Northeast Ohio area. Whether it's storm damage, a tree down on your roof, or a hazardous lean, we respond fast — call (330) 595-9003 any time."}
+        },
+        {
+          "@type": "Question",
+          "name": "Are you fully insured?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes, Jake The Tree Guy LLC is fully insured for liability and workers' compensation. You can request proof of insurance before any work begins."}
+        },
+        {
+          "@type": "Question",
+          "name": "Do you remove trees near houses or power lines?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Absolutely — that's our specialty. Jake personally handles removals that other companies turn down, including trees over rooftops, close to structures, and in tight spaces near utility lines. 18+ years of technical climbing experience means we can safely remove trees where bucket trucks and cranes can't reach."}
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer free estimates?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes, all estimates are completely free. Contact us online or call (330) 595-9003 and we'll come assess your trees at no charge."}
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you serve in Northeast Ohio?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Jake The Tree Guy LLC serves Stow, Cuyahoga Falls, Kent, Cleveland, Canton, Barberton, and the surrounding Northeast Ohio region. Not sure if we cover your area? Give us a call."}
+        },
+        {
+          "@type": "Question",
+          "name": "Do you do stump grinding?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes, stump grinding is one of our core services. We grind stumps down below grade so your yard is clean and ready for replanting or landscaping."}
+        },
+        {
+          "@type": "Question",
+          "name": "Will you rescue an animal stuck in a tree?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes — and it's always free. If a cat, raccoon, or other animal is stuck up in a tree, Jake will climb up and bring them down at no charge. Just call (330) 595-9003."}
+        }
+      ]
     }
   ]
 }
@@ -406,6 +440,15 @@ nav.scrolled {
   color: var(--muted);
   letter-spacing: 1px;
   max-width: 280px;
+}
+.hero-local {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(242,237,228,0.55);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+  max-width: 360px;
 }
 .hero-cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -1167,6 +1210,46 @@ nav.scrolled {
 .cform-submit:hover { background: var(--purple-light); transform: translateY(-1px); }
 .cform-note { font-size: 12px; color: var(--dimmer); text-align: center; }
 
+/* ── FAQ ── */
+#faq { background: var(--bg2); padding: 100px 0; }
+.faq-inner { max-width: 860px; margin: 0 auto; padding: 0 60px; }
+.faq-header { margin-bottom: 56px; }
+.faq-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.faq-hed {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 0.9;
+  color: var(--white);
+}
+.faq-list { list-style: none; }
+.faq-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 32px 0;
+}
+.faq-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.faq-item dt {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.faq-item dd {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+.faq-item dd a { color: var(--gold); text-decoration: none; }
+.faq-item dd a:hover { color: var(--white); }
+
 /* ── FOOTER ── */
 footer {
   background: #050505;
@@ -1415,6 +1498,7 @@ footer {
     <h1 class="hero-title">Jake The<br><em>Tree</em> Guy LLC</h1>
     <div class="hero-sub-row">
       <p class="hero-tagline">That's my name for a reason — 18 years climbing every tree personally.</p>
+      <p class="hero-local">Tree removal, pruning &amp; emergency service in Stow, Cuyahoga Falls, Kent &amp; Northeast Ohio.</p>
       <div class="hero-cta-group">
         <a href="#contact" class="btn-gold">Get Free Estimate</a>
         <a href="tel:3305959003" class="btn-outline">(330) 595-9003</a>
@@ -1807,6 +1891,46 @@ footer {
         <script src="https://cdn.deftform.com/embed.js"></script>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="faq-label">Common Questions</div>
+      <h2 class="faq-hed">FAQ</h2>
+    </div>
+    <dl class="faq-list">
+      <div class="faq-item reveal">
+        <dt>Do you offer emergency tree removal in Stow, OH?</dt>
+        <dd>Yes. We provide emergency tree removal throughout Stow and the surrounding Northeast Ohio area. Whether it's storm damage, a tree down on your roof, or a hazardous lean, we respond fast — call <a href="tel:3305959003">(330) 595-9003</a> any time.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>Are you fully insured?</dt>
+        <dd>Yes, Jake The Tree Guy LLC is fully insured for liability and workers' compensation. You can request proof of insurance before any work begins.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>Do you remove trees near houses or power lines?</dt>
+        <dd>That's our specialty. Jake personally handles removals that other companies turn down — trees over rooftops, tight spaces near structures, and close to utility lines. 18+ years of technical climbing means we can safely remove trees where bucket trucks and cranes can't reach.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>Do you offer free estimates?</dt>
+        <dd>Yes, all estimates are completely free. Contact us online or call <a href="tel:3305959003">(330) 595-9003</a> and we'll come assess your trees at no charge.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>What areas do you serve in Northeast Ohio?</dt>
+        <dd>We serve Stow, Cuyahoga Falls, Kent, Cleveland, Canton, Barberton, and the surrounding Northeast Ohio region. Not sure if we cover your area? Give us a call.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>Do you do stump grinding?</dt>
+        <dd>Yes. We grind stumps down below grade so your yard is clean and ready for replanting or landscaping.</dd>
+      </div>
+      <div class="faq-item reveal">
+        <dt>Will you rescue an animal stuck in a tree?</dt>
+        <dd>Yes — and it's always free. If a cat, raccoon, or other animal is stuck in a tree, Jake will climb up and bring them down at no charge. Just call <a href="tel:3305959003">(330) 595-9003</a>.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
