@@ -882,13 +882,79 @@ nav.scrolled {
   z-index: 0;
   pointer-events: none;
 }
-.vid-frame iframe {
+.vid-slides {
   position: absolute;
   inset: 0;
+  z-index: 1;
+}
+.vid-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+.vid-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.vid-slide iframe {
   width: 100%;
   height: 100%;
   border: none;
-  z-index: 1;
+  display: block;
+}
+.vid-social-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.vid-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.vid-dot {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.vid-dot-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 8px;
+  transition: color 0.3s;
+  font-family: 'Raleway', sans-serif;
+}
+.vid-dot.active .vid-dot-label { color: var(--white); }
+.vid-dot-bar {
+  display: block;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+.vid-dot-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--purple);
+  border-radius: 1px;
+}
+@keyframes vid-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.vid-dot.progressing .vid-dot-fill {
+  animation: vid-fill 8s linear forwards;
 }
 .vid-placeholder {
   position: absolute;
@@ -1637,7 +1703,10 @@ footer {
       <div class="vid-label">Watch Us Work</div>
       <h2 class="vid-hed">The Craft<br>Up Close</h2>
       <p class="vid-body">See what sets Jake apart — technical climbs, precision cuts, and spotless cleanup that makes other tree services look ordinary. This is what 18 years of experience looks like.</p>
-      <a href="https://www.youtube.com/channel/UCRe_NJBfxvk_PWagNUk13KA" target="_blank" rel="noopener" class="btn-outline">View YouTube Channel</a>
+      <div class="vid-social-btns">
+        <a href="https://www.youtube.com/channel/UCRe_NJBfxvk_PWagNUk13KA" target="_blank" rel="noopener" class="btn-outline">View YouTube Channel</a>
+        <a href="https://facebook.com/Jakethetreeguy" target="_blank" rel="noopener" class="btn-outline">View Facebook Page</a>
+      </div>
     </div>
     <div class="reveal right" style="position:relative;">
       <div class="vid-frame" id="video-container">
@@ -1645,15 +1714,38 @@ footer {
           <div class="vid-play-icon">▶</div>
           <span>Scroll to play</span>
         </div>
-        <iframe
-          id="fb-video"
-          src=""
-          allow="autoplay; encrypted-media; clipboard-write; picture-in-picture; web-share"
-          allowfullscreen="true"
-          scrolling="no"
-          frameborder="0"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <div class="vid-slides">
+          <div class="vid-slide active">
+            <iframe
+              id="fb-video"
+              src=""
+              allow="autoplay; encrypted-media; clipboard-write; picture-in-picture; web-share"
+              allowfullscreen="true"
+              scrolling="no"
+              frameborder="0"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="vid-slide">
+            <iframe
+              id="yt-video"
+              src=""
+              allow="autoplay; encrypted-media; picture-in-picture; web-share"
+              allowfullscreen="true"
+              frameborder="0">
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="vid-nav">
+        <button class="vid-dot active" onclick="switchVid(0)">
+          <span class="vid-dot-label">Facebook Reel</span>
+          <span class="vid-dot-bar"><span class="vid-dot-fill"></span></span>
+        </button>
+        <button class="vid-dot" onclick="switchVid(1)">
+          <span class="vid-dot-label">YouTube Short</span>
+          <span class="vid-dot-bar"><span class="vid-dot-fill"></span></span>
+        </button>
       </div>
     </div>
   </div>
@@ -1953,20 +2045,51 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') shiftLb(1);
 });
 
-// VIDEO SCROLL PLAY
+// VIDEO CAROUSEL
 const FB_SRC = 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1636785514060075%2F&show_text=false&width=560&t=0&autoplay=1&mute=1';
+const YT_SRC = 'https://www.youtube.com/embed/Znzb-6C-Aas?autoplay=1&mute=1&rel=0&modestbranding=1';
+const vidSrcs = [FB_SRC, YT_SRC];
 const fbVideo = document.getElementById('fb-video');
+const ytVideo = document.getElementById('yt-video');
+const vidEls = [fbVideo, ytVideo];
 const fbContainer = document.getElementById('video-container');
-// Browsers require the iframe to already be in the DOM with allow="autoplay"
-// We toggle the src to start/stop — clearing src pauses by unloading the embed
+const vidSlides = document.querySelectorAll('.vid-slide');
+const vidDots = document.querySelectorAll('.vid-dot');
+const ROTATE_MS = 8000;
+let vidIdx = 0, vidTimer = null, vidInView = false;
+
+function switchVid(idx) {
+  vidSlides[vidIdx].classList.remove('active');
+  vidDots[vidIdx].classList.remove('active', 'progressing');
+  vidEls[vidIdx].src = 'about:blank';
+  vidIdx = idx;
+  vidSlides[vidIdx].classList.add('active');
+  vidDots[vidIdx].classList.add('active');
+  if (vidInView) {
+    vidEls[vidIdx].src = vidSrcs[vidIdx];
+    void vidDots[vidIdx].offsetWidth;
+    vidDots[vidIdx].classList.add('progressing');
+  }
+  clearInterval(vidTimer);
+  if (vidInView) {
+    vidTimer = setInterval(() => switchVid((vidIdx + 1) % vidSrcs.length), ROTATE_MS);
+  }
+}
+
 new IntersectionObserver(entries => {
   entries.forEach(e => {
+    vidInView = e.isIntersecting;
     if (e.isIntersecting) {
-      fbVideo.src = FB_SRC;
       fbContainer.classList.add('loaded');
+      vidEls[vidIdx].src = vidSrcs[vidIdx];
+      void vidDots[vidIdx].offsetWidth;
+      vidDots[vidIdx].classList.add('progressing');
+      vidTimer = setInterval(() => switchVid((vidIdx + 1) % vidSrcs.length), ROTATE_MS);
     } else {
-      fbVideo.src = 'about:blank';
+      vidEls.forEach(v => v.src = 'about:blank');
+      vidDots.forEach(d => d.classList.remove('progressing'));
       fbContainer.classList.remove('loaded');
+      clearInterval(vidTimer);
     }
   });
 }, { threshold: 0.35, rootMargin: '0px 0px -80px 0px' }).observe(fbContainer);
