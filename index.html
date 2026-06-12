@@ -132,8 +132,14 @@
 <link rel="icon" type="image/png" href="Jakethetreguylogonewnobg.png">
 <link rel="shortcut icon" type="image/png" href="Jakethetreguylogonewnobg.png">
 <link rel="apple-touch-icon" href="Jakethetreguylogonewnobg.png">
+<!-- Preload hero background for LCP -->
+<link rel="preload" as="image" href="jakeinatree.jpg" media="(min-width: 769px)">
+<link rel="preload" as="image" href="jakeinatree-800.webp" media="(max-width: 768px)">
+<!-- Async font load to eliminate render-blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,200;0,400;0,600;0,700;0,900;1,300;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,200;0,400;0,600;0,700;0,900;1,300;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,200;0,400;0,600;0,700;0,900;1,300;1,500&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1367,7 +1373,7 @@ footer {
   <a href="#home" class="nav-logo">
     <picture>
       <source type="image/webp" srcset="Jakethetreguylogonewnobg.webp">
-      <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC">
+      <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC" width="439" height="568">
     </picture>
   </a>
   <ul class="nav-links">
@@ -1403,7 +1409,7 @@ footer {
   <div class="hero-content">
     <picture>
       <source type="image/webp" srcset="Jakethetreguylogonewnobg.webp">
-      <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC" class="hero-logo">
+      <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC" class="hero-logo" width="439" height="568">
     </picture>
     <div class="hero-eyebrow">Stow, Ohio · Est. 2006</div>
     <h1 class="hero-title">Jake The<br><em>Tree</em> Guy LLC</h1>
@@ -1455,7 +1461,7 @@ footer {
   <div class="about-photo reveal left">
     <picture>
       <source type="image/webp" srcset="jakeinatree2-800.webp" media="(max-width: 768px)">
-      <img src="jakeinatree2.jpg" alt="Jake smiling in full climbing gear and harness high in a tree">
+      <img src="jakeinatree2.jpg" alt="Jake smiling in full climbing gear and harness high in a tree" width="1536" height="2048">
     </picture>
   </div>
   <div class="about-text reveal right">
@@ -1574,75 +1580,75 @@ footer {
   </div>
   <div class="gallery-grid">
     <div class="gitem" onclick="openLb(0)">
-      <picture><source type="image/webp" srcset="2698-800.webp" media="(max-width: 768px)"><img src="2698.jpg" alt="Jake standing on top of a tree with American flag in background" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2698-800.webp" media="(max-width: 768px)"><img src="2698.jpg" alt="Jake standing on top of a tree with American flag in background" loading="lazy" width="1440" height="1440"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(1)">
-      <picture><source type="image/webp" srcset="jakeinatree-800.webp" media="(max-width: 768px)"><img src="jakeinatree.jpg" alt="Jake selfie at extreme height during tree removal with suburban neighborhood visible far below" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jakeinatree-800.webp" media="(max-width: 768px)"><img src="jakeinatree.jpg" alt="Jake selfie at extreme height during tree removal with suburban neighborhood visible far below" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(2)">
-      <picture><source type="image/webp" srcset="jakeinatree4-800.webp" media="(max-width: 768px)"><img src="jakeinatree4.jpg" alt="Jake in full climbing gear up in a tree" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jakeinatree4-800.webp" media="(max-width: 768px)"><img src="jakeinatree4.jpg" alt="Jake in full climbing gear up in a tree" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(3)">
-      <picture><source type="image/webp" srcset="2701-800.webp" media="(max-width: 768px)"><img src="2701.jpg" alt="Tree climber suspended from crane aerial lift working in tree canopy against blue sky" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2701-800.webp" media="(max-width: 768px)"><img src="2701.jpg" alt="Tree climber suspended from crane aerial lift working in tree canopy against blue sky" loading="lazy" width="1153" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(4)">
-      <picture><source type="image/webp" srcset="jakeinatree3-800.webp" media="(max-width: 768px)"><img src="jakeinatree3.jpg" alt="Dramatic overhead view from the treetop" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jakeinatree3-800.webp" media="(max-width: 768px)"><img src="jakeinatree3.jpg" alt="Dramatic overhead view from the treetop" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(5)">
-      <picture><source type="image/webp" srcset="jake-800.webp" media="(max-width: 768px)"><img src="jake.jpg" alt="Jake selfie at the top of tall pine trees with crew and equipment visible on the ground far below" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jake-800.webp" media="(max-width: 768px)"><img src="jake.jpg" alt="Jake selfie at the top of tall pine trees with crew and equipment visible on the ground far below" loading="lazy" width="2048" height="1536"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(6)">
-      <picture><source type="image/webp" srcset="jake2-800.webp" media="(max-width: 768px)"><img src="jake2.jpg" alt="Jake selfie in tree with wood chipper and stump grinder equipment visible below in residential yard" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jake2-800.webp" media="(max-width: 768px)"><img src="jake2.jpg" alt="Jake selfie in tree with wood chipper and stump grinder equipment visible below in residential yard" loading="lazy" width="816" height="1088"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(7)">
-      <picture><source type="image/webp" srcset="jakeinatree2-800.webp" media="(max-width: 768px)"><img src="jakeinatree2.jpg" alt="Jake smiling selfie in full climbing harness with chainsaw high in a tree" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jakeinatree2-800.webp" media="(max-width: 768px)"><img src="jakeinatree2.jpg" alt="Jake smiling selfie in full climbing harness with chainsaw high in a tree" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(8)">
-      <picture><source type="image/webp" srcset="chippertruck-800.webp" media="(max-width: 768px)"><img src="chippertruck.jpg" alt="Aerial view of crew working between houses" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="chippertruck-800.webp" media="(max-width: 768px)"><img src="chippertruck.jpg" alt="Aerial view of crew working between houses" loading="lazy" width="1540" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(9)">
-      <picture><source type="image/webp" srcset="2702-800.webp" media="(max-width: 768px)"><img src="2702.jpg" alt="Jake in branded shirt with climbing gear and chainsaw" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2702-800.webp" media="(max-width: 768px)"><img src="2702.jpg" alt="Jake in branded shirt with climbing gear and chainsaw" loading="lazy" width="1153" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(10)">
-      <picture><source type="image/webp" srcset="2704-800.webp" media="(max-width: 768px)"><img src="2704.jpg" alt="Massive tree section lifted by crane at dusk" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2704-800.webp" media="(max-width: 768px)"><img src="2704.jpg" alt="Massive tree section lifted by crane at dusk" loading="lazy" width="1153" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(11)">
-      <picture><source type="image/webp" srcset="loadinglogs-800.webp" media="(max-width: 768px)"><img src="loadinglogs.jpg" alt="Loading logs with tracked equipment" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="loadinglogs-800.webp" media="(max-width: 768px)"><img src="loadinglogs.jpg" alt="Loading logs with tracked equipment" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(12)">
-      <picture><source type="image/webp" srcset="jake3-800.webp" media="(max-width: 768px)"><img src="jake3.jpg" alt="Jake rigging a freshly cut log section with ropes and pulleys while holding a chainsaw in a tree" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="jake3-800.webp" media="(max-width: 768px)"><img src="jake3.jpg" alt="Jake rigging a freshly cut log section with ropes and pulleys while holding a chainsaw in a tree" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(13)">
-      <picture><source type="image/webp" srcset="2697-800.webp" media="(max-width: 768px)"><img src="2697.jpg" alt="Crew member standing next to massive still-standing tree trunk showing scale before removal in residential neighborhood" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2697-800.webp" media="(max-width: 768px)"><img src="2697.jpg" alt="Crew member standing next to massive still-standing tree trunk showing scale before removal in residential neighborhood" loading="lazy" width="1536" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(14)">
-      <picture><source type="image/webp" srcset="2705-800.webp" media="(max-width: 768px)"><img src="2705.jpg" alt="Crew member actively cutting large felled tree into sections with chainsaw dust visible" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="2705-800.webp" media="(max-width: 768px)"><img src="2705.jpg" alt="Crew member actively cutting large felled tree into sections with chainsaw dust visible" loading="lazy" width="1153" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(15)">
-      <picture><source type="image/webp" srcset="loadinglogs2-800.webp" media="(max-width: 768px)"><img src="loadinglogs2.jpg" alt="Log cleanup and hauling" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="loadinglogs2-800.webp" media="(max-width: 768px)"><img src="loadinglogs2.jpg" alt="Log cleanup and hauling" loading="lazy" width="1540" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(16)">
-      <picture><source type="image/webp" srcset="buckettruck-800.webp" media="(max-width: 768px)"><img src="buckettruck.jpg" alt="Jake giving thumbs up selfie with crew member operating bucket truck during tree removal" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="buckettruck-800.webp" media="(max-width: 768px)"><img src="buckettruck.jpg" alt="Jake giving thumbs up selfie with crew member operating bucket truck during tree removal" loading="lazy" width="2048" height="1536"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
     <div class="gitem" onclick="openLb(17)">
-      <picture><source type="image/webp" srcset="buckettruck2-800.webp" media="(max-width: 768px)"><img src="buckettruck2.jpg" alt="Bucket truck with extended boom removing pine trees next to residential home" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="buckettruck2-800.webp" media="(max-width: 768px)"><img src="buckettruck2.jpg" alt="Bucket truck with extended boom removing pine trees next to residential home" loading="lazy" width="1540" height="2048"></picture>
       <div class="gitem-overlay"><div class="gitem-zoom">+</div></div>
     </div>
   </div>
@@ -1810,7 +1816,7 @@ footer {
     <div class="fbrand">
       <picture>
         <source type="image/webp" srcset="Jakethetreguylogonewnobg.webp">
-        <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC">
+        <img src="Jakethetreguylogonewnobg.png" alt="Jake The Tree Guy LLC" width="439" height="568">
       </picture>
       <p>Expert tree removal, pruning, and arborist services in Northeast Ohio. 18+ years climbing every tree personally. Fully insured. No job too big or small.</p>
     </div>
