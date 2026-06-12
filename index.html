@@ -909,53 +909,29 @@ nav.scrolled {
   gap: 12px;
   flex-wrap: wrap;
 }
-.vid-nav {
+.vid-arr {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(9,9,9,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--white);
+  width: 44px;
+  height: 44px;
   display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-.vid-dot {
-  flex: 1;
-  background: none;
-  border: none;
-  padding: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  line-height: 1;
   cursor: pointer;
-  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.3s, border-color 0.3s;
 }
-.vid-dot-label {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 8px;
-  transition: color 0.3s;
-  font-family: 'Raleway', sans-serif;
-}
-.vid-dot.active .vid-dot-label { color: var(--white); }
-.vid-dot-bar {
-  display: block;
-  height: 2px;
-  background: rgba(255,255,255,0.08);
-  position: relative;
-  overflow: hidden;
-  border-radius: 1px;
-}
-.vid-dot-fill {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: var(--purple);
-  border-radius: 1px;
-}
-@keyframes vid-fill {
-  from { width: 0; }
-  to { width: 100%; }
-}
-.vid-dot.progressing .vid-dot-fill {
-  animation: vid-fill 8s linear forwards;
-}
+.vid-frame:hover .vid-arr { opacity: 1; }
+.vid-arr:hover { background: rgba(139,68,200,0.75); border-color: var(--purple); }
+.vid-arr-prev { left: 12px; }
+.vid-arr-next { right: 12px; }
 .vid-placeholder {
   position: absolute;
   inset: 0;
@@ -1736,16 +1712,8 @@ footer {
             </iframe>
           </div>
         </div>
-      </div>
-      <div class="vid-nav">
-        <button class="vid-dot active" onclick="switchVid(0)">
-          <span class="vid-dot-label">Facebook Reel</span>
-          <span class="vid-dot-bar"><span class="vid-dot-fill"></span></span>
-        </button>
-        <button class="vid-dot" onclick="switchVid(1)">
-          <span class="vid-dot-label">YouTube Short</span>
-          <span class="vid-dot-bar"><span class="vid-dot-fill"></span></span>
-        </button>
+        <button class="vid-arr vid-arr-prev" onclick="switchVid(vidIdx - 1)" aria-label="Previous video">&#8249;</button>
+        <button class="vid-arr vid-arr-next" onclick="switchVid(vidIdx + 1)" aria-label="Next video">&#8250;</button>
       </div>
     </div>
   </div>
@@ -2054,26 +2022,17 @@ const ytVideo = document.getElementById('yt-video');
 const vidEls = [fbVideo, ytVideo];
 const fbContainer = document.getElementById('video-container');
 const vidSlides = document.querySelectorAll('.vid-slide');
-const vidDots = document.querySelectorAll('.vid-dot');
 const ROTATE_MS = 8000;
 let vidIdx = 0, vidTimer = null, vidInView = false;
 
 function switchVid(idx) {
   vidSlides[vidIdx].classList.remove('active');
-  vidDots[vidIdx].classList.remove('active', 'progressing');
   vidEls[vidIdx].src = 'about:blank';
-  vidIdx = idx;
+  vidIdx = ((idx % vidSrcs.length) + vidSrcs.length) % vidSrcs.length;
   vidSlides[vidIdx].classList.add('active');
-  vidDots[vidIdx].classList.add('active');
-  if (vidInView) {
-    vidEls[vidIdx].src = vidSrcs[vidIdx];
-    void vidDots[vidIdx].offsetWidth;
-    vidDots[vidIdx].classList.add('progressing');
-  }
+  if (vidInView) vidEls[vidIdx].src = vidSrcs[vidIdx];
   clearInterval(vidTimer);
-  if (vidInView) {
-    vidTimer = setInterval(() => switchVid((vidIdx + 1) % vidSrcs.length), ROTATE_MS);
-  }
+  if (vidInView) vidTimer = setInterval(() => switchVid(vidIdx + 1), ROTATE_MS);
 }
 
 new IntersectionObserver(entries => {
@@ -2082,12 +2041,9 @@ new IntersectionObserver(entries => {
     if (e.isIntersecting) {
       fbContainer.classList.add('loaded');
       vidEls[vidIdx].src = vidSrcs[vidIdx];
-      void vidDots[vidIdx].offsetWidth;
-      vidDots[vidIdx].classList.add('progressing');
-      vidTimer = setInterval(() => switchVid((vidIdx + 1) % vidSrcs.length), ROTATE_MS);
+      vidTimer = setInterval(() => switchVid(vidIdx + 1), ROTATE_MS);
     } else {
       vidEls.forEach(v => v.src = 'about:blank');
-      vidDots.forEach(d => d.classList.remove('progressing'));
       fbContainer.classList.remove('loaded');
       clearInterval(vidTimer);
     }
