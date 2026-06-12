@@ -1828,40 +1828,8 @@ footer {
         </div>
       </div>
       <div class="reveal right">
-        <form class="cform" onsubmit="handleSubmit(event)">
-          <div class="cform-row">
-            <div class="fgroup">
-              <label for="c-name">Your Name</label>
-              <input type="text" id="c-name" name="name" placeholder="John Smith" required>
-            </div>
-            <div class="fgroup">
-              <label for="c-phone">Phone</label>
-              <input type="tel" id="c-phone" name="phone" placeholder="(330) 555-0100">
-            </div>
-          </div>
-          <div class="fgroup">
-            <label for="c-email">Email</label>
-            <input type="email" id="c-email" name="email" placeholder="you@example.com">
-          </div>
-          <div class="fgroup">
-            <label for="c-service">Service Needed</label>
-            <select id="c-service" name="service">
-              <option value="">— Select a service —</option>
-              <option>Hazardous Tree Removal</option>
-              <option>Tree Pruning &amp; Trimming</option>
-              <option>Hard-to-Reach Removal</option>
-              <option>Stump Grinding</option>
-              <option>Emergency Service</option>
-              <option>Free Estimate / Not Sure</option>
-            </select>
-          </div>
-          <div class="fgroup">
-            <label for="c-msg">Tell Us About Your Trees</label>
-            <textarea id="c-msg" name="message" placeholder="Describe the trees, location, any concerns..."></textarea>
-          </div>
-          <button type="submit" class="cform-submit">Send Message &amp; Request Estimate</button>
-          <p class="cform-note">We respond within a few hours. Or just call (330) 595-9003.</p>
-        </form>
+        <div class="deftform" data-form-id="9d9c894c-297e-4d34-ba72-265772c290e5" data-form-width="100%" data-form-align="center" data-form-auto-height="1"></div>
+        <script src="https://cdn.deftform.com/embed.js"></script>
       </div>
     </div>
   </div>
@@ -2058,20 +2026,6 @@ track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor 
 track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
 track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); track.scrollLeft = scrollL - (e.pageX - track.offsetLeft - startX); });
 
-// FORM
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.cform-submit');
-  btn.textContent = 'Message Sent ✓';
-  btn.style.background = '#3d1a6e';
-  btn.style.color = '#fff';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message & Request Estimate';
-    btn.style.background = ''; btn.style.color = ''; btn.disabled = false;
-    e.target.reset();
-  }, 4000);
-}
 </script>
 </body>
 </html>
