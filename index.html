@@ -1436,6 +1436,23 @@ footer {
   .hero-cta-group { flex-direction: column; }
   .btn-gold, .btn-outline { width: 100%; text-align: center; }
 }
+
+/* SERVICE AREAS */
+#service-areas { background: var(--bg2); padding: 96px 0; }
+.areas-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.areas-label { font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.areas-hed { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 96px); line-height: 0.9; color: var(--white); }
+.areas-hed em { color: var(--gold); font-style: normal; }
+.areas-rule { width: 48px; height: 2px; background: var(--gold); opacity: 0.6; margin: 20px 0 24px; }
+.areas-body { font-size: 15px; color: var(--muted); line-height: 1.85; max-width: 600px; margin-bottom: 48px; }
+.areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(242,237,228,0.05); }
+.area-card { background: var(--bg3); padding: 40px 36px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; transition: background 0.3s; }
+.area-card:hover { background: var(--bg4); }
+.area-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.area-name { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; color: var(--white); line-height: 1.1; }
+.area-desc { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
+.area-cta { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+@media (max-width: 768px) { #service-areas { padding: 72px 0; } .areas-inner { padding: 0 24px; } .areas-grid { grid-template-columns: 1fr; } }
 </style>
 <script async defer src="https://app.visitortracking.com/assets/js/tracer.js"></script>
 <script>
@@ -1651,6 +1668,38 @@ footer {
         <span class="svc-toggle">+</span>
       </div>
       <div class="svc-body"><div class="svc-body-inner">Drone tangled up in the branches? We can get it down without damaging your equipment or the tree. With 18+ years of precision climbing experience, recovering a snagged drone is all in a day's work.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="service-areas">
+  <div class="areas-inner">
+    <div class="reveal">
+      <div class="areas-label">Service Areas</div>
+      <h2 class="areas-hed">Serving <em>Northeast Ohio</em></h2>
+      <div class="areas-rule"></div>
+      <p class="areas-body">We take on difficult jobs across Summit County and Northeast Ohio. Explore our local service pages for area-specific info, photos, and FAQs.</p>
+    </div>
+    <div class="areas-grid">
+      <a href="/tree-removal-stow-oh/" class="area-card reveal">
+        <div class="area-tag">Stow · Summit County</div>
+        <div class="area-name">Tree Removal<br>Stow, OH</div>
+        <p class="area-desc">Hazardous removals, trees near structures and power lines, stump grinding, and emergency service for Stow homeowners.</p>
+        <div class="area-cta">Get a Free Estimate →</div>
+      </a>
+      <a href="/emergency-tree-service-northeast-ohio/" class="area-card reveal">
+        <div class="area-tag">All of Northeast Ohio</div>
+        <div class="area-name">Emergency Tree<br>Service — NE Ohio</div>
+        <p class="area-desc">Storm damage, trees on roofs, dangerous leans — we respond fast across Summit, Portage, Stark, and surrounding counties.</p>
+        <div class="area-cta">Get a Free Estimate →</div>
+      </a>
+      <a href="/tree-service-cuyahoga-falls-oh/" class="area-card reveal">
+        <div class="area-tag">Cuyahoga Falls · Summit County</div>
+        <div class="area-name">Tree Service<br>Cuyahoga Falls, OH</div>
+        <p class="area-desc">Full tree service in Cuyahoga Falls — removal, pruning, stump grinding, and more from a locally-trusted climber with 18+ years experience.</p>
+        <div class="area-cta">Get a Free Estimate →</div>
+      </a>
     </div>
   </div>
 </section>
